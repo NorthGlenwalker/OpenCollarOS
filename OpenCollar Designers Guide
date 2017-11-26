@@ -1,0 +1,63 @@
+A collection of undocumented features to help Collar designers using OpenCollar (over 3.994) Scripts
+I never knew all of these myself, but worked them out from the scripts.
+I will try and put them into some form of order.
+North Glenwalker
+
+It used to be critical that all notecards were included in a collar, now the collar tries to build a blank default notecard if it is missing.
+
+".defaultsettings" (was "defaultsettings")
+In SL your Design ID, had to be after the second "~" in the description which was restrictive.
+if you have a particular 'fancy design' collar, you can set up the texture, shiny, color, leash textures, badwords etc in the appearance settings.Then go to /Main/Options menu and then Dump Cache or in local chat type *dump_cache. 
+First decide on a designer ID for this collar, I will pick "North Collar" then start the root prim description with this name. So, to prevent color and texture change of my root prim my Description would look like "North Collar~nocolor~notexture  (Do not use "~", or "_" in your Designer ID
+You should get a printout of the current settings starting "#---My Settings---#", ignore any lines starting User_auth, User_rlvmain, User_Global etc. Copy the lines relevant to your design to ".defaultsettings" notecard with #---Designer Defaults---# at the top, followed by your settings and then followed by "#---My Settings---#" leaving it blank after this. rename lines starting with "User" to your Design ID ie "User_glow=on~1" would become "North Collar_glow=on~1" leaving in the "_" at the end of your ID
+
+textures_custom notecard
+A custom notecard containing a list of Texture name, followed by it's UUID
+format - Snake,5f9a679d-db33-4df6-87fc-a35587252baf
+Texture name must not exist in the collar and be less then 23 characters long or it will be dropped and must be a valid UUID. Only a single "," between the name and UUID.
+
+.styles notecard
+Can be preset with custom themes or styles for your collar design. set up the texture/color of each element, then enter styles and Dump the format will be eg-
+[ New Style ]
+Leather~ ~<0.8902,0.65882,0.99608>~ 
+Metal~Rusty Metal Chest~ ~0
+
+{part description}~{texture name or UUID}~{color code}~{shiny}
+blank parts between ~ ~ is default settings
+Change the "New Style" to your own and save it to the .styles notecard
+
+Custom Leash textures
+add "leash_" before your texture name which has to be less then 23 characters long to add your custom rope/chain texture to the collar eg leash_hemp
+
+Animations
+~PostureOverride - default name for using the posture collar animation
+(animation name) - add your own custom animations and for selecting on badwords
+~-(number) - height scaling number to adjust animation height
+~shock - default animation to use when badwords said
+
+sounds
+~soundname - default sound file to use when badwords said
+soundname - selectable sound file to use when badword said
+
+
+Collar builds
+---------------
+
+Prim Name field.
+Unused by the collar commands, except the Root Prim
+
+Prim Description field options
+Start word of description field - In Root prim used as Designer settings ID, All other prims used to link same parts together for color, and texture control ie Metal, Leather, Gem, Stones etc
+Special prim - FloatText~notexture~nocolor~nohide - only used for the Float Text menu can be called just FloatText in your build, the scripts will add the other tags automatically.
+~nocolor  - disable appearance color for this prim
+~notexture - disable appearance texture for this prim
+~Bell - an element of the bell (note capital "B") enables the whole bell to be hidden/shown at once.
+~leashpoint  or ~leashpoint:1  or ~leashpoint:2 etc - custom leash point if Root prim not used. Multiple leash points can be set eg for pony bridle.
+~nohide - disables hide/show for this prim
+~number - version number, valid for root prim only, only used when updating collar
+~Lock or ~ClosedLock - prims to show when collar is locked
+~OpenLock - prims to show when collar is un-locked
+
+"" or " " or "(No Description)"- treated as ~nocolor~notexture
+you can string as many of these items together as you need
+eg - Ring~notexture~nocolor~nohide~Bell~leashpoint:2 - in this case you can not change the texture or color, it will not hide when in "stealth mode" but will hide/show under the Bell menu and will emit a leash chain from it

@@ -1,0 +1,12 @@
+Reinstated Full subspy script option into Apps menu (Trace is automatically removed from Apps menu).
+Camera controls now work correctly.
+Stay function under leash now works correctly (This never even worked in SL as far as I can see as wrong commands being called).
+Keyholder plugin reinstated back to working original code from WhiteFire Sondergaard small change only to get it to show in Apps menu.
+Styles works correctly and documented for use in IW
+Designer ID's in defaultsettings notecard cleaned up to allow designers to easily add their own settings
+defaultsettings notecard renamed to ".defaultsettings" to it appears at the top of the collar contents
+option to save settings directly to ".defaultsettings" notecard
+option to clear ".defaultsettings" notecard
+option to save settings directly to  ".bookmarks" notecard
+All notecards if missing creates a correct default notecard for that script
+RLV Undress remove clothing and attach points will not show if locked. Also not able to remove Hud points. This will prevent items like hair and AO's etc from being removed accidentally allowing for a safer undress RP
